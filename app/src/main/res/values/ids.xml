@@ -19,4 +19,13 @@
     <item name="textView10" type="id" />
     <item name="textView11" type="id" />
     <item name="textView12" type="id" />
+    <item name="backButton" type="id" />
+    <item name="Regbtn" type="id" />
+    <item name="CPasswordreg" type="id" />
+    <item name="textView4" type="id" />
+    <item name="Passwordreg" type="id" />
+    <item name="Emailreg" type="id" />
+    <item name="AddressReg" type="id" />
+    <item name="Phonereg" type="id" />
+    <item name="Namereg" type="id" />
 </resources>
