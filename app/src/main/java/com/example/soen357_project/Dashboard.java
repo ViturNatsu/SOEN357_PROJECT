@@ -21,6 +21,9 @@ public class Dashboard extends AppCompatActivity {
         NearMebtn = findViewById(R.id.nearMebtn);
         ProfileBtn = findViewById(R.id.profilebtn);
 
+        /*
+         * Go to My Companions Activity
+         */
         MyCompBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,6 +33,33 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
+        /*
+         * Go to Appointments and Reminders Activity
+         */
+        AppointBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboard.this, AppointmentsAndReminders.class);
+                startActivity(intent);
+
+            }
+        });
+
+        /*
+         * Go to Dog Parks Near Me Activity
+         */
+        NearMebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboard.this, DogParksNearMe.class);
+                startActivity(intent);
+
+            }
+        });
+
+        /*
+         * Go to Profile Activity
+         */
         ProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,5 +68,7 @@ public class Dashboard extends AppCompatActivity {
 
             }
         });
+
+
     }
 }

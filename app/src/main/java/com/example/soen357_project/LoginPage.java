@@ -68,13 +68,18 @@ public class LoginPage extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Sign in success
                                     Toast.makeText(LoginPage.this, "Login successful", Toast.LENGTH_SHORT).show();
-                                    // Proceed to the next activity or perform other actions
+
+                                    // Go to Dashboard
+                                    Intent intent = new Intent(LoginPage.this, Dashboard.class);
+                                    startActivity(intent);
+                                    finish(); // cannot go back to this activity (login) with back button after successful login
                                 } else {
-                                    // If sign in fails, display a message to the user.
+                                    // Sign in fail, display message to user
                                     Toast.makeText(LoginPage.this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
+
             }
         });
     }
