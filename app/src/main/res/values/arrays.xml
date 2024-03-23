@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="gender_array" />
+    <string-array name="breed_array" />
+    <string-array name="months_array" />
+    <string-array name="years_array" />
+    <string-array name="days_array" />
+</resources>

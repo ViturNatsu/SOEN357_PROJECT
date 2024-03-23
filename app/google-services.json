@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "498573071676",
+    "project_id": "soen357-wolfeasy",
+    "storage_bucket": "soen357-wolfeasy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498573071676:android:aabfec79099e27ae1d7a39",
+        "android_client_info": {
+          "package_name": "com.example.soen357_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzUHnAlTIW9RGFA5CjiziznvtasrymqXU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
