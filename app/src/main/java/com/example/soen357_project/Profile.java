@@ -116,6 +116,7 @@ public class Profile extends AppCompatActivity {
         DeleteAccountBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                user.delete();
                 userRef.removeValue();
                 Intent intent = new Intent(Profile.this, MainActivity.class);
                 startActivity(intent);
