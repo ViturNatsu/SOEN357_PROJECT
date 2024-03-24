@@ -4,13 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,9 +25,6 @@ public class MyCompanions extends AppCompatActivity {
     ArrayList<DogData> list;
     DatabaseReference databaseReference;
     DogAdapter mydogAdapter;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +50,6 @@ public class MyCompanions extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("My Pets:");
         databaseReference.addValueEventListener(new ValueEventListener() {
 
-
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
@@ -79,7 +73,6 @@ public class MyCompanions extends AppCompatActivity {
                 }
             }
 
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("DataRetrieval", "Database error: " + error.getMessage());
@@ -98,10 +91,13 @@ public class MyCompanions extends AppCompatActivity {
     }
 
     public void onImageClicked(View view) {
-        // Handle image click event here
-        // For example, you can start another activity, show a toast, etc.
         Intent intent = new Intent(MyCompanions.this, Dashboard.class);
         startActivity(intent);
+    }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(MyCompanions.this, Dashboard.class);
+        startActivity(intent);
     }
 }

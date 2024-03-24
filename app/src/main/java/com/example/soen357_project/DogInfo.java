@@ -1,17 +1,12 @@
 package com.example.soen357_project;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toolbar;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,30 +15,28 @@ import com.google.firebase.database.ValueEventListener;
 
 public class DogInfo extends AppCompatActivity {
     private TextView dogName,dogBreed,dogDoB,dogSex;
-    private Button returnBtn;
+    private Button health_records;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dog_info);
 
-
-
         dogName = findViewById(R.id.dDogName);
-        dogBreed = findViewById(R.id.dDogBreed);
-        dogDoB = findViewById(R.id.dDogDoB);
-        dogSex = findViewById(R.id.dDogGender);
-        returnBtn = findViewById(R.id.backDogInfoBtn);
+        dogBreed = findViewById(R.id.vax_status);
+        dogDoB = findViewById(R.id.allergies);
+        dogSex = findViewById(R.id.weight);
+        health_records = findViewById(R.id.health_records_btn);
 
         getDogInfo();
-        returnBtn.setOnClickListener(new View.OnClickListener() {
+
+        health_records.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DogInfo.this, MyCompanions.class);
+                Intent intent = new Intent(DogInfo.this, HealthRecords.class);
                 startActivity(intent);
             }
         });
-
     }
 
     private void getDogInfo() {
@@ -73,4 +66,14 @@ public class DogInfo extends AppCompatActivity {
         });
     }
 
+    public void onImageClicked(View view) {
+        Intent intent = new Intent(DogInfo.this, MyCompanions.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(DogInfo.this, MyCompanions.class);
+        startActivity(intent);
+    }
 }

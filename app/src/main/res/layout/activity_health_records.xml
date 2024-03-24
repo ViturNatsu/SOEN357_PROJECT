@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DogInfo">
-
+    tools:context=".HealthRecords">
 
     <TextView
-        android:id="@+id/dDogName"
+        android:id="@+id/HR_Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
@@ -18,7 +17,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/dog_pic" />
+
+    <ImageView
+        android:id="@+id/dog_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="71dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dog" />
 
     <TextView
         android:id="@+id/vax_status"
@@ -27,12 +37,12 @@
         android:layout_marginTop="52dp"
         android:background="@drawable/text_veiw_style"
         android:gravity="center"
-        android:text="Dog Breed"
+        android:text="Vaccination Status"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dDogName" />
+        app:layout_constraintTop_toBottomOf="@+id/HR_Label" />
 
     <TextView
         android:id="@+id/weight"
@@ -41,7 +51,7 @@
         android:layout_marginTop="35dp"
         android:background="@drawable/text_veiw_style"
         android:gravity="center"
-        android:text="Dog Gender"
+        android:text="Weight"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,9 +65,8 @@
         android:layout_height="40dp"
         android:layout_marginTop="35dp"
         android:background="@drawable/text_veiw_style"
-
         android:gravity="center"
-        android:text="Date of Birth"
+        android:text="Allergies"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,43 +75,34 @@
         app:layout_constraintTop_toBottomOf="@+id/weight" />
 
     <TextView
-        android:id="@+id/dDogRessource"
+        android:id="@+id/medication"
         android:layout_width="375dp"
         android:layout_height="40dp"
         android:layout_marginTop="35dp"
-        android:background="@android:color/darker_gray"
+        android:background="@drawable/text_veiw_style"
         android:gravity="center"
-        android:text="Resources"
+        android:text="Medication"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/allergies" />
 
-    <Button
-        android:id="@+id/health_records_btn"
+    <TextView
+        android:id="@+id/chip_number"
         android:layout_width="375dp"
         android:layout_height="40dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/text_veiw_style"
         android:gravity="center"
-        android:text="Health Records"
+        android:text="Chip Number"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dDogRessource" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="71dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dog" />
+        app:layout_constraintTop_toBottomOf="@+id/medication" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -110,6 +110,18 @@
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/back_arrow"
-        android:onClick="onImageClicked"/>
+        android:onClick="onImageClicked"
+        app:srcCompat="@drawable/back_arrow" />
+
+    <TextView
+        android:id="@+id/myCompTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Health Records"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

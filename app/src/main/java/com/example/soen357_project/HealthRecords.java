@@ -6,24 +6,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.google.android.gms.maps.GoogleMap;
-
-public class DogParksNearMe extends AppCompatActivity {
+public class HealthRecords extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dog_parks_near_me);
+        setContentView(R.layout.activity_health_records);
     }
 
     public void onImageClicked(View view) {
-        Intent intent = new Intent(DogParksNearMe.this, Dashboard.class);
+        Intent intent = new Intent(HealthRecords.this, DogInfo.class);
         startActivity(intent);
     }
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(DogParksNearMe.this, Dashboard.class);
+        Intent intent = new Intent(HealthRecords.this, DogInfo.class);
         startActivity(intent);
     }
 }

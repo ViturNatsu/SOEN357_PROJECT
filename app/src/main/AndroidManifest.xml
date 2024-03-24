@@ -24,29 +24,32 @@
             android:name=".DogParksNearMe"
             android:exported="false" />
         <activity
+            android:name=".HealthRecords"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".User"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".register"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".LoginPage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".DogInfo"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".AddCompanion"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Profile"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MyCompanions"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Dashboard"
             android:exported="true">

@@ -12,7 +12,6 @@ public class DogData {
     private String month_DofB;
     private String year_DofB;
 
-
     public DogData(String name, String age, String breed, String condition, String day_DofB, String month_DofB, String year_DofB, String dofB, String gender, String vetName) {
         this.name = name;
         this.age = age;
@@ -64,20 +63,16 @@ public class DogData {
         return breed;
     }
 
-    public String getCondition() {
-        return condition;
-    }
+    public String getCondition() {return condition;}
 
-    public String getDay_DofB() { return day_DofB; }
+    public String getDay_DofB() {return day_DofB;}
 
-    public String getMonth_DofB() { return month_DofB; }
+    public String getMonth_DofB() {return month_DofB;}
 
-    public String getYear_DofB() { return year_DofB; }
+    public String getYear_DofB() {return year_DofB;}
 
-    public String getDofB() { return DofB; }
+    public String getDofB() {return DofB;}
 
-    public String getVetName() { return vetName; }
-    public String getGender() { return gender; }
-
-
+    public String getVetName() {return vetName;}
+    public String getGender() {return gender;}
 }

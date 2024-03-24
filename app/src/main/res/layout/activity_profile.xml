@@ -18,7 +18,7 @@
             tools:context=".Profile">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout4"
+                android:id="@+id/back_btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
                     android:layout_marginTop="30dp"
                     android:gravity="center"
                     android:text="Address"
-                    android:background="@drawable/rounded_corner_background"
+                    android:background="@drawable/text_veiw_style"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +49,7 @@
                     android:layout_marginTop="30dp"
                     android:gravity="center"
                     android:text="Phone"
-                    android:background="@drawable/rounded_corner_background"
+                    android:background="@drawable/text_veiw_style"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -83,21 +83,13 @@
 
                 <TextView
                     android:id="@+id/myCompTitle"
-                    android:layout_width="375dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="52dp"
-                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Profile"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/userEmail"
@@ -106,7 +98,7 @@
                     android:layout_marginTop="30dp"
                     android:gravity="center"
                     android:text="Email"
-                    android:background="@drawable/rounded_corner_background"
+                    android:background="@drawable/text_veiw_style"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -119,7 +111,7 @@
                     android:layout_width="375dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="28dp"
-                    android:background="@drawable/rounded_corner_background"
+                    android:background="@drawable/text_veiw_style"
                     android:gravity="center"
                     android:text="Name"
                     android:textSize="20sp"
@@ -147,15 +139,11 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="69dp"
-        android:layout_height="48dp"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="15dp"
         android:onClick="onImageClicked"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back_arrow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

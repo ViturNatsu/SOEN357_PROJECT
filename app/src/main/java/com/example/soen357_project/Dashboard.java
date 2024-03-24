@@ -1,14 +1,13 @@
 package com.example.soen357_project;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-public class Dashboard extends AppCompatActivity {
 
+public class Dashboard extends AppCompatActivity {
     private TextView UserWelcomed;
     private Button MyCompBtn,AppointBtn,NearMebtn,ProfileBtn;
 
@@ -65,10 +64,15 @@ public class Dashboard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Dashboard.this, Profile.class);
                 startActivity(intent);
-
             }
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Dashboard.this, Dashboard.class);
+        startActivity(intent);
     }
 }

@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -18,7 +17,6 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginPage extends AppCompatActivity {
     private EditText emailEditText, passwordEditText;
     private Button loginButton,backbutton2;
-
     private FirebaseAuth mAuth;
 
     @SuppressLint("MissingInflatedId")
@@ -26,7 +24,6 @@ public class LoginPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
-
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -45,6 +42,7 @@ public class LoginPage extends AppCompatActivity {
                 finish();
             }
         });
+
         // Initialize login button
         loginButton = findViewById(R.id.LoginBtn2);
         loginButton.setOnClickListener(new View.OnClickListener() {
