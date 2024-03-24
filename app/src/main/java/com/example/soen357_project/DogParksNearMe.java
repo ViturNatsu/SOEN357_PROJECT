@@ -2,27 +2,30 @@ package com.example.soen357_project;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.libraries.places.api.Places;
-import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
-import org.jetbrains.annotations.NotNull;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +33,13 @@ import java.util.List;
 public class DogParksNearMe extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap gMap;
+    private ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dog_parks_near_me);
+        listView = findViewById(R.id.dogParkListView);
 
         if (!Places.isInitialized()) {
             Places.initialize(getApplicationContext(), ""); // Removed API Key for safety purposes, will restrict and add later
@@ -44,6 +50,7 @@ public class DogParksNearMe extends AppCompatActivity implements OnMapReadyCallb
 
         // Static Montreal
         fetchDogParks(45.49719, -73.57907);
+        onDogParkItemClick();
     }
 
     @Override
@@ -52,6 +59,11 @@ public class DogParksNearMe extends AppCompatActivity implements OnMapReadyCallb
 
         LatLng montreal = new LatLng(45.49719, -73.57907);
         gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(montreal, 15));
+    }
+
+    public void onImageClicked(View view) {
+        Intent intent = new Intent(DogParksNearMe.this, Dashboard.class);
+        startActivity(intent);
     }
 
     // REST API GET Request to retrieve dog parks near location provided with a radius of 10000
@@ -78,8 +90,9 @@ public class DogParksNearMe extends AppCompatActivity implements OnMapReadyCallb
 
                     // use runOnUiThread as specified in the Android documentation
                     runOnUiThread(() -> {
-                        List<DogPark> parkNames = parseParkNamesFromResponse(responseData);
-                        updateListView(parkNames);
+                        List<DogPark> dogParks = parseParkNamesFromResponse(responseData);
+                        updateListView(dogParks);
+                        updateMapMarkers(dogParks);
                     });
                 }
             }
@@ -87,7 +100,7 @@ public class DogParksNearMe extends AppCompatActivity implements OnMapReadyCallb
     }
 
     private List<DogPark> parseParkNamesFromResponse(String response) {
-        List<DogPark> parkNames = new ArrayList<>();
+        List<DogPark> dogParks = new ArrayList<>();
         try {
             JSONObject jsonObject = new JSONObject(response);
             String status = jsonObject.getString("status");
@@ -96,32 +109,54 @@ public class DogParksNearMe extends AppCompatActivity implements OnMapReadyCallb
             Log.d("tempCheck", results.toString());
 
             for (int i = 0; i < results.length(); i++) {
-                JSONObject park = results.getJSONObject(i);
-                String name = park.getString("name");
-                String address = park.getString("vicinity");
-                parkNames.add(new DogPark(name, address));
+                JSONObject dogPark = results.getJSONObject(i);
+                String name = dogPark.getString("name");
+                if (name.contains("dog park") || name.contains("Dog park")) {
+                    name = name.replace("dog park", "").trim();
+                }
+                String address = dogPark.getString("vicinity");
+
+                JSONObject location = dogPark.getJSONObject("geometry").getJSONObject("location");
+                double latitude = location.getDouble("lat");
+                double longitude = location.getDouble("lng");
+                dogParks.add(new DogPark(name, address, latitude, longitude));
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return parkNames;
+        return dogParks;
     }
+
+    // Make map move to dog park that is pressed in list
+    private void onDogParkItemClick() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                DogPark dogPark = (DogPark) parent.getItemAtPosition(position);
+                LatLng location = new LatLng(dogPark.getLatitude(), dogPark.getLongitude());
+                if (gMap != null) {
+                    gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
+                }
+            }
+        });
+    }
+
+
+    // ListView for dog parks based on dog parks received
     private void updateListView(List<DogPark> parkNames) {
-        ListView listView = findViewById(R.id.dogParkListView);
         DogParkAdapter adapter = new DogParkAdapter(this, parkNames);
         listView.setAdapter(adapter);
     }
 
-    public void onImageClicked(View view) {
-        Intent intent = new Intent(DogParksNearMe.this, Dashboard.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        startActivity(intent);
+    // Place map markers for dog parks
+    private void updateMapMarkers(List<DogPark> dogParks) {
+        for (DogPark dogPark : dogParks) {
+            LatLng dogParkLocation = new LatLng(dogPark.getLatitude(), dogPark.getLongitude());
+            gMap.addMarker(new MarkerOptions()
+                    .position(dogParkLocation)
+                    .title(dogPark.getName())
+                    .snippet(dogPark.getAddress()));
+        }
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(DogParksNearMe.this, Dashboard.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        startActivity(intent);
-    }
 }
