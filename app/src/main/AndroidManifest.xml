@@ -22,7 +22,7 @@
             android:exported="false" />
         <activity
             android:name=".DogParksNearMe"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".HealthRecords"
             android:exported="true" />
@@ -61,7 +61,10 @@
         </activity>
 
 
-
+        <!-- Removed API Key for safety purposes, will restrict and add later-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value=""/>
     </application>
 
 </manifest>
