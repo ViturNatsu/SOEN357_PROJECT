@@ -27,7 +27,7 @@
             android:name=".HealthRecords"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Dashboard"
             android:exported="false" />
         <activity
             android:name=".User"
@@ -51,7 +51,7 @@
             android:name=".MyCompanions"
             android:exported="true" />
         <activity
-            android:name=".Dashboard"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

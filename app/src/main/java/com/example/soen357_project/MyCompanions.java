@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,6 +24,7 @@ public class MyCompanions extends AppCompatActivity {
 
     private FloatingActionButton addPetBtn;
     private RecyclerView recyclerView;
+    private FirebaseUser user;
     ArrayList<DogData> list;
     DatabaseReference databaseReference;
     DogAdapter mydogAdapter;
@@ -47,7 +50,8 @@ public class MyCompanions extends AppCompatActivity {
             }
         });
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("My Pets:");
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid()).child("My Pets:");
         databaseReference.addValueEventListener(new ValueEventListener() {
 
             @Override

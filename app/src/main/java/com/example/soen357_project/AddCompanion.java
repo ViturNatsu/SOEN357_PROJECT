@@ -14,6 +14,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.text.SimpleDateFormat;
@@ -162,7 +164,8 @@ public class AddCompanion extends AppCompatActivity {
 
     private void addDogInfo(String Name, String Breed, String Day, String Month, String Year, String Gender, String Vet){
         String Age;
-        DatabaseReference addPetData = FirebaseDatabase.getInstance().getReference().child("My Pets:").child(Name);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference addPetData = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid()).child("My Pets:").child(Name);
 
         SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
         String currentYearString = yearFormat.format(new Date());
