@@ -8,7 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -16,8 +20,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Profile extends AppCompatActivity {
-    private DatabaseReference databaseReference;
     private TextView uName,uEmail,uPhone,uAddress;
+    private Button logOutBtn, DeleteAccountBtn;
+    private FirebaseUser user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +33,12 @@ public class Profile extends AppCompatActivity {
         uEmail = findViewById(R.id.userEmail);
         uAddress = findViewById(R.id.userAddress);
         uPhone = findViewById(R.id.userPhoneNumber);
+        logOutBtn = findViewById(R.id.logoutButton);
+        DeleteAccountBtn =findViewById(R.id.deleteBtn);
 
         // Get a reference to your Firebase Realtime Database
-        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("userInfo");
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
 
         // Read from the database
         userRef.child("name").addValueEventListener(new ValueEventListener() {
@@ -48,7 +57,7 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        userRef.child("Email").addValueEventListener(new ValueEventListener() {
+        userRef.child("email").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
@@ -64,7 +73,7 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        userRef.child("Phone number").addValueEventListener(new ValueEventListener() {
+        userRef.child("phone").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
@@ -93,6 +102,23 @@ public class Profile extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
                 // Failed to read value
                 Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
+
+        logOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Profile.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        DeleteAccountBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userRef.removeValue();
+                Intent intent = new Intent(Profile.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
