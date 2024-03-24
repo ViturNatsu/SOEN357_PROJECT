@@ -8,21 +8,6 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="82dp"
-        android:gravity="center"
-        android:text="Start by creating an Account !"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
     <EditText
         android:id="@+id/Namereg"
         android:layout_width="match_parent"
@@ -34,12 +19,12 @@
         android:background="#CCCCCC"
         android:gravity="center"
         android:hint="Name"
+        android:inputType="text"
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/app_name_6"
         tools:ignore="MissingConstraints" />
 
 
@@ -53,9 +38,9 @@
         android:layout_marginEnd="9dp"
         android:background="#CCCCCC"
         android:gravity="center"
+        android:inputType="text"
         android:hint="Email"
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,8 +58,8 @@
         android:background="#CCCCCC"
         android:gravity="center"
         android:hint="Password"
+        android:inputType="text|textPassword|textNoSuggestions"
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -93,8 +78,8 @@
         android:background="#CCCCCC"
         android:gravity="center"
         android:hint="Phone Number"
+        android:inputType="phone"
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -113,8 +98,8 @@
         android:background="#CCCCCC"
         android:gravity="center"
         android:hint="Address"
+        android:inputType="text"
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -133,8 +118,8 @@
         android:background="#CCCCCC"
         android:gravity="center"
         android:hint="Confirm Password"
+        android:inputType="text|textPassword|textNoSuggestions"
         android:textColor="@color/black"
-        android:textColorHint="@color/black"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -143,10 +128,9 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/app_name_6"
         android:layout_width="187dp"
         android:layout_height="76dp"
-
         android:layout_marginStart="112dp"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="112dp"
@@ -155,29 +139,8 @@
         android:textSize="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_3" />
 
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="307dp"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        android:drawablePadding="8dp"
-        android:focusable="true"
-        android:gravity="center_vertical"
-        android:padding="8dp"
-        android:text="Return"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Regbtn"
-        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/Regbtn"
@@ -197,16 +160,36 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/logo_3"
         android:layout_width="112dp"
         android:layout_height="87dp"
         android:layout_marginStart="149dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="150dp"
         android:src="@drawable/img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/create_account"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/back_arrow_9"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:onClick="onImageClicked"
+        app:srcCompat="@drawable/back_arrow" />
+
+    <TextView
+        android:id="@+id/create_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create an Account!"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_arrow_9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

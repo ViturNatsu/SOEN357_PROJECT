@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import java.util.List;
 
 public class DogParkAdapter extends ArrayAdapter<DogPark> {
@@ -28,7 +27,6 @@ public class DogParkAdapter extends ArrayAdapter<DogPark> {
         parkName.setText(dogPark.getName());
         parkAddress.setText(dogPark.getAddress());
 
-        // return view
         return view;
     }
 }

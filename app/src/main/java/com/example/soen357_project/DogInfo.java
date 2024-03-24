@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,9 +27,9 @@ public class DogInfo extends AppCompatActivity {
         setContentView(R.layout.activity_dog_info);
 
         dogName = findViewById(R.id.dDogName);
-        dogBreed = findViewById(R.id.vax_status);
-        dogDoB = findViewById(R.id.allergies);
-        dogSex = findViewById(R.id.weight);
+        dogBreed = findViewById(R.id.breed);
+        dogDoB = findViewById(R.id.dog_birth);
+        dogSex = findViewById(R.id.gender);
         health_records = findViewById(R.id.health_records_btn);
         user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -75,12 +74,14 @@ public class DogInfo extends AppCompatActivity {
 
     public void onImageClicked(View view) {
         Intent intent = new Intent(DogInfo.this, MyCompanions.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }
 
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(DogInfo.this, MyCompanions.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }
 }

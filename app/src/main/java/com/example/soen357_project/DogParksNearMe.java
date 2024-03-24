@@ -2,14 +2,12 @@ package com.example.soen357_project;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -21,12 +19,10 @@ import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
-
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,11 +52,6 @@ public class DogParksNearMe extends AppCompatActivity implements OnMapReadyCallb
 
         LatLng montreal = new LatLng(45.49719, -73.57907);
         gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(montreal, 15));
-    }
-
-    public void onImageClicked(View view) {
-        Intent intent = new Intent(DogParksNearMe.this, Dashboard.class);
-        startActivity(intent);
     }
 
     // REST API GET Request to retrieve dog parks near location provided with a radius of 10000
@@ -121,5 +112,16 @@ public class DogParksNearMe extends AppCompatActivity implements OnMapReadyCallb
         listView.setAdapter(adapter);
     }
 
+    public void onImageClicked(View view) {
+        Intent intent = new Intent(DogParksNearMe.this, Dashboard.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+    }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(DogParksNearMe.this, Dashboard.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+    }
 }

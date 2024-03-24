@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class register extends AppCompatActivity {
     private EditText nameEditText, emailEditText,phoneEditText,AddressEditText, passwordEditText, confirmPasswordEditText;
-    private Button registerButton,registerBack;
+    private Button registerButton;
     private FirebaseAuth mAuth;
     private DatabaseReference usersRef;
 
@@ -42,19 +42,6 @@ public class register extends AppCompatActivity {
         emailEditText = findViewById(R.id.Emailreg);
         passwordEditText = findViewById(R.id.Passwordreg);
         confirmPasswordEditText = findViewById(R.id.CPasswordreg);
-
-        // Initialize register button
-        registerBack = findViewById(R.id.backButton);
-        registerBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Define the behavior when the back button is clicked
-
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         registerButton = findViewById(R.id.Regbtn);
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -104,5 +91,20 @@ public class register extends AppCompatActivity {
                         });
             }
         });
+    }
+
+    public void onImageClicked(View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
     }
 }

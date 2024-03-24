@@ -1,4 +1,5 @@
 package com.example.soen357_project;
+
 public class User {
     private String name;
     private String email;

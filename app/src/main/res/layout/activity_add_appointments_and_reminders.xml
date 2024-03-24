@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AppointmentsAndReminders">
+    tools:context=".add_appointments_and_reminders">
 
     <ImageView
-        android:id="@+id/back_arrow_2"
+        android:id="@+id/back_arrow_10"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
@@ -16,14 +16,14 @@
         app:srcCompat="@drawable/back_arrow" />
 
     <TextView
-        android:id="@+id/appointments_and_reminders"
+        android:id="@+id/add_appoint_rem_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Appointments &amp; Reminders"
+        android:text="Add Appointments &amp; Reminders"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/back_arrow_2" />
+        app:layout_constraintTop_toBottomOf="@id/back_arrow_10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

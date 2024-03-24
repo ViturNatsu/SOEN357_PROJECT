@@ -194,12 +194,14 @@ public class AddCompanion extends AppCompatActivity {
 
     public void onImageClicked(View view) {
         Intent intent = new Intent(AddCompanion.this, MyCompanions.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }
 
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(AddCompanion.this, MyCompanions.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }
 }

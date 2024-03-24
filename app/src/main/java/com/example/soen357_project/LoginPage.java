@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginPage extends AppCompatActivity {
     private EditText emailEditText, passwordEditText;
-    private Button loginButton,backbutton2;
+    private Button loginButton;
     private FirebaseAuth mAuth;
 
     @SuppressLint("MissingInflatedId")
@@ -31,17 +31,6 @@ public class LoginPage extends AppCompatActivity {
         // Initialize EditText fields
         emailEditText = findViewById(R.id.Emaillog);
         passwordEditText = findViewById(R.id.CPasswordlog);
-        backbutton2 = findViewById(R.id.backButton2);
-        backbutton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Define the behavior when the back button is clicked
-
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         // Initialize login button
         loginButton = findViewById(R.id.LoginBtn2);
@@ -80,5 +69,20 @@ public class LoginPage extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void onImageClicked(View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
     }
 }

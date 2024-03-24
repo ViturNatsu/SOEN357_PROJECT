@@ -72,7 +72,6 @@ public class Dashboard extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(Dashboard.this, Dashboard.class);
-        startActivity(intent);
+        super.onBackPressed();
     }
 }

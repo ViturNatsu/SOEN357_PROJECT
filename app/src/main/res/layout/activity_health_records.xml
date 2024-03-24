@@ -17,13 +17,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dog_pic" />
+        app:layout_constraintTop_toBottomOf="@+id/dog_pic_3" />
 
     <ImageView
-        android:id="@+id/dog_pic"
+        android:id="@+id/dog_pic_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="71dp"
+        android:layout_marginTop="90dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,7 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/medication" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/back_arrow_5"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
@@ -114,14 +114,15 @@
         app:srcCompat="@drawable/back_arrow" />
 
     <TextView
-        android:id="@+id/myCompTitle"
+        android:id="@+id/health_records"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Health Records"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_arrow_5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

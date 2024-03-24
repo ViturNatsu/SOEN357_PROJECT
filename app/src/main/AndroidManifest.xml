@@ -18,8 +18,11 @@
         android:theme="@style/Theme.SOEN357_PROJECT"
         tools:targetApi="31">
         <activity
+            android:name=".add_appointments_and_reminders"
+            android:exported="true" />
+        <activity
             android:name=".AppointmentsAndReminders"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".DogParksNearMe"
             android:exported="true" />
@@ -60,11 +63,9 @@
             </intent-filter>
         </activity>
 
-
         <!-- Removed API Key for safety purposes, will restrict and add later-->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value=""/>
     </application>
-
 </manifest>
