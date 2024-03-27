@@ -48,4 +48,5 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.3.0")
     implementation("com.google.android.libraries.places:places:3.4.0")
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation("com.google.firebase:firebase-database:20.3.1")
 }
