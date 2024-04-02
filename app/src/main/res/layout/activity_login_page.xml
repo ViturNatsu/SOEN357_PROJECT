@@ -8,25 +8,39 @@
     tools:context=".MainActivity">
 
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="81dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="81dp"
+        android:gravity="center"
+        android:text="Welcome Back !"
+        android:textSize="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
     <EditText
         android:id="@+id/Emaillog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="169dp"
         android:layout_marginEnd="9dp"
         android:layout_marginBottom="48dp"
-        android:background="#CCCCCC"
+        android:background="@drawable/contour_background"
         android:gravity="center"
         android:hint="Email"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/CPasswordlog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_name_label"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -35,34 +49,33 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="89dp"
         android:layout_marginEnd="9dp"
         android:layout_marginBottom="52dp"
-        android:background="#CCCCCC"
+        android:background="@drawable/contour_background"
         android:gravity="center"
         android:hint="Password"
-        android:inputType="text|textPassword|textNoSuggestions"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/LoginBtn2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Emaillog"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/app_name_label"
+        android:id="@+id/textView3"
         android:layout_width="187dp"
         android:layout_height="76dp"
-        android:layout_marginTop="125dp"
+        android:layout_marginBottom="424dp"
         android:gravity="center"
+
         android:text="Woof Easy"
         android:textSize="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_1" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/LoginBtn2"
@@ -70,51 +83,55 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="60dp"
         android:layout_marginEnd="9dp"
+        android:layout_marginBottom="24dp"
         android:text="Login"
         android:textSize="30dp"
+        android:textColor="@android:color/black"
+        app:backgroundTint="@color/button_color"
         app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/backButton2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CPasswordlog"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/backButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="307dp"
+        android:layout_marginBottom="28dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:drawablePadding="8dp"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:text="Return"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/logo_1"
         android:layout_width="112dp"
         android:layout_height="87dp"
         android:layout_marginStart="149dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="150dp"
         android:layout_marginBottom="17dp"
         android:src="@drawable/img"
-        app:layout_constraintBottom_toTopOf="@+id/app_name_label"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome_back"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.888"
         tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/back_arrow_6"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:onClick="onImageClicked"
-        app:srcCompat="@drawable/back_arrow" />
-
-    <TextView
-        android:id="@+id/welcome_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome Back!"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/back_arrow_6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

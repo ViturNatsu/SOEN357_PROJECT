@@ -13,19 +13,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
         android:text="Dog Name"
-        android:textSize="18sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dog_image_2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/breed"
         android:layout_width="375dp"
         android:layout_height="40dp"
         android:layout_marginTop="52dp"
-        android:background="@drawable/text_veiw_style"
+        android:background="@drawable/contour_background"
         android:gravity="center"
         android:text="Dog Breed"
         android:textSize="18sp"
@@ -39,7 +39,7 @@
         android:layout_width="375dp"
         android:layout_height="40dp"
         android:layout_marginTop="35dp"
-        android:background="@drawable/text_veiw_style"
+        android:background="@drawable/contour_background"
         android:gravity="center"
         android:text="Dog Gender"
         android:textSize="18sp"
@@ -54,7 +54,7 @@
         android:layout_width="375dp"
         android:layout_height="40dp"
         android:layout_marginTop="35dp"
-        android:background="@drawable/text_veiw_style"
+        android:background="@drawable/contour_background"
         android:gravity="center"
         android:text="Date of Birth"
         android:textSize="18sp"
@@ -69,11 +69,13 @@
         android:layout_width="375dp"
         android:layout_height="40dp"
         android:layout_marginTop="35dp"
-        android:background="@android:color/darker_gray"
+        android:background="@color/button_color"
         android:gravity="center"
         android:text="Resources"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dog_birth" />
@@ -82,18 +84,21 @@
         android:id="@+id/health_records_btn"
         android:layout_width="375dp"
         android:layout_height="40dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="35dp"
+        android:background="@color/button_color"
         android:gravity="center"
         android:text="Health Records"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@android:color/black"
+        app:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dDogRessource" />
 
     <ImageView
-        android:id="@+id/dog_image_2"
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="71dp"
@@ -104,7 +109,7 @@
         app:srcCompat="@drawable/dog" />
 
     <ImageView
-        android:id="@+id/back_arrow_3"
+        android:id="@+id/imageView3"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"

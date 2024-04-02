@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,8 @@ import java.util.Locale;
 import java.util.Map;
 
 public class Dashboard extends AppCompatActivity {
-    private TextView UserWelcomed;
+    private TextView title;
+    private ImageView logo;
     private Button MyCompBtn,AppointBtn,NearMebtn,ProfileBtn;
 
     @Override
