@@ -5,6 +5,8 @@
     <color name="light_gray">#DCDCDC</color>
     <color name="orange">#FFA500</color>
     <color name="green">#00FF00</color>
-    <color name="background_color">#FADE</color>
-    <color name="button_color">#FFB200EE</color>
+    <color name="background_color">#FDF5EF</color>
+    <color name="button_color">#5C8AC4</color>
+    <color name="textbox_color">#FFFEFE</color>
+    <color name="contour_color">#FF000000</color>
 </resources>

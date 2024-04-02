@@ -5,16 +5,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Dashboard extends AppCompatActivity {
-    private TextView UserWelcomed;
+    private TextView title;
+    private ImageView logo;
     private Button MyCompBtn,AppointBtn,NearMebtn,ProfileBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        title = findViewById(R.id.dasboardTitle);
+        logo = findViewById(R.id.dashboardlogo);
         MyCompBtn = findViewById(R.id.myCompbtn);
         AppointBtn = findViewById(R.id.appointbtn);
         NearMebtn = findViewById(R.id.nearMebtn);

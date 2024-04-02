@@ -127,10 +127,4 @@ public class Profile extends AppCompatActivity {
         Intent intent = new Intent(Profile.this, Dashboard.class);
         startActivity(intent);
     }
-
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(Profile.this, Dashboard.class);
-        startActivity(intent);
-    }
 }
