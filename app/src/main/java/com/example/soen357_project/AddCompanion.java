@@ -140,7 +140,6 @@ public class AddCompanion extends AppCompatActivity {
                 String dogChipNumberString = dogChipNumber.getText().toString();
                 String dogBreedString = DogBreeds.getSelectedItem().toString();
                 String dayString = Days.getSelectedItem().toString();
-                Log.d("FROMADDCOMPANION", dayString + "OK");
                 String monthString = Months.getSelectedItem().toString();
                 String yearString = Years.getSelectedItem().toString();
                 String sexString = Sex.getSelectedItem().toString();
@@ -153,34 +152,6 @@ public class AddCompanion extends AppCompatActivity {
                 intent.putExtra("dogSex", sexString);
 
                 startActivity(intent);
-
-                // ON CLICK, PASS EVERYTHING HERE TO THE NEXT CLASS
-                // THEN GO TO NEW ACTIVITY WHERE USER IS ASKED TO INPUT
-                // VaccinationStatus, Weight, Allergies, Medication, Veterinary Name
-
-/*                Context applicationContext = getApplicationContext();
-                if (dogName.getText().toString().equals("NAME") || dogName.getText().toString().trim().isEmpty() ||
-                        DogBreeds.getSelectedItem().toString().equals("Dog Breed") ||
-                        Days.getSelectedItem().toString().equals("DD") ||
-                        Months.getSelectedItem().toString().equals("MM") ||
-                        Years.getSelectedItem().toString().equals("YYYY") ||
-                        Sex.getSelectedItem().toString().equals("Gender") ||
-                        dogChipNumber.getText().toString().equals("Chip Number") ||
-                        dogChipNumber.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(applicationContext, "Success", Toast.LENGTH_SHORT).show();
-                    String myPetName = dogName.getText().toString();
-                    String myPetBreed = DogBreeds.getSelectedItem().toString();
-                    String myPetDay = Days.getSelectedItem().toString();
-                    String myPetMonth = Months.getSelectedItem().toString();
-                    String myPetYear = Years.getSelectedItem().toString();
-                    String myPetGender = Sex.getSelectedItem().toString();
-                    String myPetChipNumber = dogChipNumber.getText().toString();
-                    addDogInfo(myPetName, myPetBreed, myPetDay, myPetMonth, myPetYear, myPetGender, myPetChipNumber);
-                    Intent intent = new Intent(AddCompanion.this, MyCompanions.class);
-                    startActivity(intent);
-                }*/
             }
         });
     }
