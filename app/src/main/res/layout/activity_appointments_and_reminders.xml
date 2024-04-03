@@ -43,13 +43,13 @@
         android:id="@+id/appointmentsListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="-25dp"
         android:divider="@color/quantum_black_divider"
         android:dividerHeight="1dp"
-        app:layout_constraintTop_toBottomOf="@id/calendarView"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/calendarView" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addAppointmentButton"
@@ -58,6 +58,7 @@
         android:layout_margin="16dp"
         android:clickable="true"
         android:focusable="true"
+        android:backgroundTint="#87B3EA"
         app:srcCompat="@android:drawable/ic_menu_add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />

@@ -10,7 +10,10 @@
         android:layout_height="655dp"
         android:layout_below="@+id/myCompTitle"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addPetbtn"
@@ -21,6 +24,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:clickable="true"
+        android:backgroundTint="#87B3EA"
         app:srcCompat="@android:drawable/ic_menu_add" />
 
     <TextView
