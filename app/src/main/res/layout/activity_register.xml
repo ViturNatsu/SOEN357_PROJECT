@@ -7,150 +7,189 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/back_arrow_10"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:onClick="onImageClicked"
+        app:srcCompat="@drawable/back_arrow" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="65dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="82dp"
         android:gravity="center"
         android:text="Start by creating an Account !"
-        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/Namereg"
+        app:layout_constraintStart_toStartOf="@id/Namereg" />
+
     <EditText
         android:id="@+id/Namereg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="9dp"
+        android:layout_width="375dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/contour_background"
         android:gravity="center"
-        android:hint="Name"
+        android:text="Name"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/Emailreg"
+        app:layout_constraintStart_toStartOf="@id/Emailreg" />
 
     <EditText
         android:id="@+id/Emailreg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="9dp"
+        android:layout_width="375dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/contour_background"
         android:gravity="center"
-        android:hint="Email"
+        android:text="Email"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Namereg"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/Namereg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/Passwordreg"
+        app:layout_constraintStart_toStartOf="@id/Passwordreg" />
 
     <EditText
         android:id="@+id/Passwordreg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="9dp"
+        android:layout_width="375dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/contour_background"
         android:gravity="center"
+        android:text="Password"
         android:hint="Password"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Phonereg"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/Phonereg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone Number"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/Phonereg"
+        app:layout_constraintStart_toStartOf="@id/Phonereg" />
 
     <EditText
         android:id="@+id/Phonereg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="9dp"
+        android:layout_width="375dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/contour_background"
         android:gravity="center"
-        android:hint="Phone Number"
+        android:text="Phone Number"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddressReg"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/AddressReg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/AddressReg"
+        app:layout_constraintStart_toStartOf="@id/AddressReg" />
 
     <EditText
         android:id="@+id/AddressReg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="9dp"
+        android:layout_width="375dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/contour_background"
         android:gravity="center"
-        android:hint="Address"
+        android:text="Address"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Emailreg"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/Emailreg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm Password"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/CPasswordreg"
+        app:layout_constraintStart_toStartOf="@id/CPasswordreg" />
 
     <EditText
         android:id="@+id/CPasswordreg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="9dp"
+        android:layout_width="375dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/contour_background"
         android:gravity="center"
-        android:hint="Confirm Password"
+        android:text="Confirm Password"
+        android:hint="Password"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
-        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Passwordreg"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/Passwordreg" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="187dp"
         android:layout_height="76dp"
         android:layout_marginStart="112dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="-25dp"
         android:layout_marginEnd="112dp"
         android:gravity="center"
         android:text="Woof Easy"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:textSize="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -199,10 +238,11 @@
 
     <ImageView
         android:id="@+id/profile_icon"
-        android:layout_width="112dp"
-        android:layout_height="87dp"
+        android:layout_width="306dp"
+        android:layout_height="183dp"
+        android:layout_gravity="center"
         android:layout_marginStart="149dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="150dp"
         android:src="@drawable/img"
         app:layout_constraintEnd_toEndOf="parent"

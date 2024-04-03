@@ -3,6 +3,7 @@ package com.example.soen357_project;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -91,6 +92,8 @@ public class register extends AppCompatActivity {
                         });
             }
         });
+
+        clearOnTouch();
     }
 
     public void onImageClicked(View view) {
@@ -106,5 +109,55 @@ public class register extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
         finish();
+    }
+
+    void clearOnTouch() {
+        nameEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                nameEditText.setText(""); // Clear the text when touched
+                return false;
+            }
+        });
+
+        phoneEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                phoneEditText.setText(""); // Clear the text when touched
+                return false;
+            }
+        });
+
+        AddressEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                AddressEditText.setText(""); // Clear the text when touched
+                return false;
+            }
+        });
+
+        emailEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                emailEditText.setText(""); // Clear the text when touched
+                return false;
+            }
+        });
+
+        passwordEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                passwordEditText.setText(""); // Clear the text when touched
+                return false;
+            }
+        });
+
+        confirmPasswordEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                confirmPasswordEditText.setText(""); // Clear the text when touched
+                return false;
+            }
+        });
     }
 }
