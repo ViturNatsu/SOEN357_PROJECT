@@ -3,10 +3,13 @@ package com.example.soen357_project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -16,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class DogInfo extends AppCompatActivity {
-    private TextView dogName,dogBreed,dogDoB,dogSex;
+    private TextView dogName,dogBreed,dogDoB,dogSex,dogRessource;
     private Button health_records;
     private FirebaseUser user;
 
@@ -30,6 +33,7 @@ public class DogInfo extends AppCompatActivity {
         dogBreed = findViewById(R.id.breed);
         dogDoB = findViewById(R.id.dog_birth);
         dogSex = findViewById(R.id.gender);
+        dogRessource = findViewById(R.id.dDogResource);
         health_records = findViewById(R.id.health_records_btn);
         user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -40,6 +44,22 @@ public class DogInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DogInfo.this, HealthRecords.class);
+                startActivity(intent);
+            }
+        });
+
+        dogRessource.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Define the URL you want to open
+                String url = "https://www.akc.org/dog-breeds/";
+
+
+                /// Create an intent with ACTION_VIEW
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                // Set the data of the intent to the URL
+                intent.setData(Uri.parse(url));
+                // Start the activity with the intent
                 startActivity(intent);
             }
         });

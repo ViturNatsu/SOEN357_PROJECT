@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/gender" />
 
     <TextView
-        android:id="@+id/dDogRessource"
+        android:id="@+id/dDogResource"
         android:layout_width="375dp"
         android:layout_height="40dp"
         android:layout_marginTop="35dp"
@@ -88,14 +88,14 @@
         android:background="@color/button_color"
         android:gravity="center"
         android:text="Health Records"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@android:color/black"
         app:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dDogRessource" />
+        app:layout_constraintTop_toBottomOf="@+id/dDogResource" />
 
     <ImageView
         android:id="@+id/imageView"
