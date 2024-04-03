@@ -1,10 +1,10 @@
 package com.example.soen357_project;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -12,21 +12,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.text.SimpleDateFormat;
-import java.util.ArrayDeque;
 import java.util.Calendar;
 import java.util.Date;
 
 public class AddCompanion extends AppCompatActivity {
     private Spinner DogBreeds,Days,Months,Years,Sex;
-    private EditText dogName,dogVet;
-    private Button saveButton;
+    private EditText dogName, dogChipNumber;
+    private Button nextButton;
     private DatabaseReference databaseReference;
 
     @Override
@@ -35,8 +33,8 @@ public class AddCompanion extends AppCompatActivity {
         setContentView(R.layout.activity_add_companion);
 
         dogName = findViewById(R.id.dogNameTxt);
-        dogVet = findViewById(R.id.dogVetTxt);
-        saveButton = findViewById(R.id.saveBtn);
+        dogChipNumber = findViewById(R.id.dogChipNumber);
+        nextButton = findViewById(R.id.nextBtn);
         DogBreeds = findViewById(R.id.breedSpinner);
         Days = findViewById(R.id.daySpinner);
         Months = findViewById(R.id.monthSpinner);
@@ -124,26 +122,51 @@ public class AddCompanion extends AppCompatActivity {
             }
         });
 
-        dogVet.setOnTouchListener(new View.OnTouchListener() {
+        dogChipNumber.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                dogVet.setText(""); // Clear the text when touched
+                dogChipNumber.setText(""); // Clear the text when touched
                 return false;
             }
         });
 
-        saveButton.setOnClickListener(new View.OnClickListener() {
+        nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Context applicationContext = getApplicationContext();
+
+                // Pass info to AddCompanion2
+                Intent intent = new Intent(AddCompanion.this, AddCompanion2.class);
+                String dogNameString = dogName.getText().toString();
+                String dogChipNumberString = dogChipNumber.getText().toString();
+                String dogBreedString = DogBreeds.getSelectedItem().toString();
+                String dayString = Days.getSelectedItem().toString();
+                Log.d("FROMADDCOMPANION", dayString + "OK");
+                String monthString = Months.getSelectedItem().toString();
+                String yearString = Years.getSelectedItem().toString();
+                String sexString = Sex.getSelectedItem().toString();
+                intent.putExtra("dogName", dogNameString);
+                intent.putExtra("dogChipNumber", dogChipNumberString);
+                intent.putExtra("dogBreed", dogBreedString);
+                intent.putExtra("dogBirthDay", dayString);
+                intent.putExtra("dogBirthMonth", monthString);
+                intent.putExtra("dogBirthYear", yearString);
+                intent.putExtra("dogSex", sexString);
+
+                startActivity(intent);
+
+                // ON CLICK, PASS EVERYTHING HERE TO THE NEXT CLASS
+                // THEN GO TO NEW ACTIVITY WHERE USER IS ASKED TO INPUT
+                // VaccinationStatus, Weight, Allergies, Medication, Veterinary Name
+
+/*                Context applicationContext = getApplicationContext();
                 if (dogName.getText().toString().equals("NAME") || dogName.getText().toString().trim().isEmpty() ||
                         DogBreeds.getSelectedItem().toString().equals("Dog Breed") ||
                         Days.getSelectedItem().toString().equals("DD") ||
                         Months.getSelectedItem().toString().equals("MM") ||
                         Years.getSelectedItem().toString().equals("YYYY") ||
                         Sex.getSelectedItem().toString().equals("Gender") ||
-                        dogVet.getText().toString().equals("NAME") ||
-                        dogVet.getText().toString().trim().isEmpty()) {
+                        dogChipNumber.getText().toString().equals("Chip Number") ||
+                        dogChipNumber.getText().toString().trim().isEmpty()) {
                     Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(applicationContext, "Success", Toast.LENGTH_SHORT).show();
@@ -153,53 +176,25 @@ public class AddCompanion extends AppCompatActivity {
                     String myPetMonth = Months.getSelectedItem().toString();
                     String myPetYear = Years.getSelectedItem().toString();
                     String myPetGender = Sex.getSelectedItem().toString();
-                    String myPetVet = dogVet.getText().toString();
-                    addDogInfo(myPetName, myPetBreed, myPetDay, myPetMonth, myPetYear, myPetGender, myPetVet);
+                    String myPetChipNumber = dogChipNumber.getText().toString();
+                    addDogInfo(myPetName, myPetBreed, myPetDay, myPetMonth, myPetYear, myPetGender, myPetChipNumber);
                     Intent intent = new Intent(AddCompanion.this, MyCompanions.class);
                     startActivity(intent);
-                }
+                }*/
             }
         });
     }
 
-    private void addDogInfo(String Name, String Breed, String Day, String Month, String Year, String Gender, String Vet){
-        String Age;
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference addPetData = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid()).child("My Pets:").child(Name);
-
-        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
-        String currentYearString = yearFormat.format(new Date());
-        int currentYear = Integer.parseInt(currentYearString);
-
-        Calendar calendar = Calendar.getInstance();
-        // Get the current month (zero-based index, so January is 0)
-        int currentMonth = calendar.get(Calendar.MONTH) + 1;
-        int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
-
-        if (Integer.parseInt(Month) > currentMonth) {
-            Age = "" + (currentYear - Integer.parseInt(Year));
-        }
-
-        else if (Integer.parseInt(Month) == currentMonth && Integer.parseInt(Day) < currentDay) {
-            Age = "" + (currentYear - Integer.parseInt(Year));
-        }
-
-        else {
-            Age =   "" + (currentYear - Integer.parseInt(Year) - 1);
-        }
-
-        DogData dogData = new DogData(Name,Age,Breed,"None",Day,Month,Year,Day + "/" + Month + "/"+ Year,Gender,Vet);
-        addPetData.setValue(dogData);
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this,MyCompanions.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
     }
 
     public void onImageClicked(View view) {
-        Intent intent = new Intent(AddCompanion.this, MyCompanions.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        startActivity(intent);
-    }
-
-    @Override
-    public void onBackPressed() {
         Intent intent = new Intent(AddCompanion.this, MyCompanions.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);

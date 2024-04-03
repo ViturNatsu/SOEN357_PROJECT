@@ -45,7 +45,7 @@ public class MyCompanions extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MyCompanions.this, AddCompanion.class);
                 startActivity(intent);
-
+                finish();
             }
         });
 
@@ -94,13 +94,6 @@ public class MyCompanions extends AppCompatActivity {
     }
 
     public void onImageClicked(View view) {
-        Intent intent = new Intent(MyCompanions.this, Dashboard.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        startActivity(intent);
-    }
-
-    @Override
-    public void onBackPressed() {
         Intent intent = new Intent(MyCompanions.this, Dashboard.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);

@@ -10,10 +10,11 @@
         android:id="@+id/HR_Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="20dp"
         android:text="Dog Name"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +24,7 @@
         android:id="@+id/dog_pic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="91dp"
+        android:layout_marginTop="130dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +32,17 @@
         app:srcCompat="@drawable/dog" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vaccination Status"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/vax_status"
+        app:layout_constraintStart_toStartOf="@id/vax_status" />
+
+    <TextView
         android:id="@+id/vax_status"
         android:layout_width="375dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:layout_marginTop="52dp"
         android:background="@drawable/contour_background"
         android:gravity="center"
@@ -45,10 +54,18 @@
         app:layout_constraintTop_toBottomOf="@+id/HR_Label" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/weight"
+        app:layout_constraintStart_toStartOf="@id/weight" />
+
+    <TextView
         android:id="@+id/weight"
         android:layout_width="375dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="35dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/contour_background"
         android:gravity="center"
         android:text="Weight"
@@ -60,10 +77,18 @@
         app:layout_constraintTop_toBottomOf="@+id/vax_status" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Allergies"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/allergies"
+        app:layout_constraintStart_toStartOf="@id/allergies" />
+
+    <TextView
         android:id="@+id/allergies"
         android:layout_width="375dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="35dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/contour_background"
         android:gravity="center"
         android:text="Allergies"
@@ -75,10 +100,18 @@
         app:layout_constraintTop_toBottomOf="@+id/weight" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medication"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/medication"
+        app:layout_constraintStart_toStartOf="@id/medication" />
+
+    <TextView
         android:id="@+id/medication"
         android:layout_width="375dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="35dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/contour_background"
         android:gravity="center"
         android:text="Medication"
@@ -90,10 +123,18 @@
         app:layout_constraintTop_toBottomOf="@+id/allergies" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chip Number"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/chip_number"
+        app:layout_constraintStart_toStartOf="@id/chip_number" />
+
+    <TextView
         android:id="@+id/chip_number"
         android:layout_width="375dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="35dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/contour_background"
         android:gravity="center"
         android:text="Chip Number"
@@ -119,10 +160,11 @@
         android:id="@+id/myCompTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="60dp"
         android:text="Health Records"
         android:textSize="30sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

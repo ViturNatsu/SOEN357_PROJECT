@@ -11,8 +11,13 @@ public class DogData {
     private String day_DofB;
     private String month_DofB;
     private String year_DofB;
+    private String vaccinationStatus;
+    private String weight;
+    private String allergies;
+    private String medication;
+    private String vetName;
 
-    public DogData(String name, String age, String breed, String condition, String day_DofB, String month_DofB, String year_DofB, String dofB, String gender, String vetName) {
+    public DogData(String name, String age, String breed, String condition, String day_DofB, String month_DofB, String year_DofB, String dofB, String gender, String chipNumber, String vaccinationStatus, String weight, String allergies, String medication, String vetName) {
         this.name = name;
         this.age = age;
         this.breed = breed;
@@ -22,14 +27,19 @@ public class DogData {
         this.year_DofB = year_DofB;
         DofB = dofB;
         this.gender = gender;
+        this.chipNumber = chipNumber;
+        this.vaccinationStatus = vaccinationStatus;
+        this.weight = weight;
+        this.allergies = allergies;
+        this.medication = medication;
         this.vetName = vetName;
     }
 
     private String DofB;
     private String gender;
-    private String vetName;
+    private String chipNumber;
 
-    public DogData(String name, String age, String breed, String condition, String day_DofB, String month_DofB, String year_DofB, String dofB, String vetName) {
+    public DogData(String name, String age, String breed, String condition, String day_DofB, String month_DofB, String year_DofB, String dofB, String chipNumber, String vaccinationStatus, String weight, String allergies, String medication, String vetName) {
         this.name = name;
         this.age = age;
         this.breed = breed;
@@ -38,6 +48,11 @@ public class DogData {
         this.month_DofB = month_DofB;
         this.year_DofB = year_DofB;
         DofB = dofB;
+        this.chipNumber = chipNumber;
+        this.vaccinationStatus = vaccinationStatus;
+        this.weight = weight;
+        this.allergies = allergies;
+        this.medication = medication;
         this.vetName = vetName;
     }
 
@@ -73,6 +88,11 @@ public class DogData {
 
     public String getDofB() {return DofB;}
 
+    public String getChipNumber() {return chipNumber;}
+    public String getVaccinationStatus() {return vaccinationStatus;}
+    public String getWeight() {return weight;}
+    public String getAllergies() {return allergies;}
+    public String getMedication() {return medication;}
     public String getVetName() {return vetName;}
     public String getGender() {return gender;}
 }
