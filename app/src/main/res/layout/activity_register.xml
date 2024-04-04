@@ -45,7 +45,7 @@
         android:id="@+id/Namereg"
         android:layout_width="375dp"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/contour_background"
         android:gravity="center"
         android:text="Name"
@@ -97,7 +97,6 @@
         android:background="@drawable/contour_background"
         android:gravity="center"
         android:text="Password"
-        android:hint="Password"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -170,7 +169,6 @@
         android:background="@drawable/contour_background"
         android:gravity="center"
         android:text="Confirm Password"
-        android:hint="Password"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -187,7 +185,7 @@
         android:layout_marginTop="-25dp"
         android:layout_marginEnd="112dp"
         android:gravity="center"
-        android:text="Woof Easy"
+        android:text="WoofEasy"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="35dp"
@@ -196,26 +194,18 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_icon" />
 
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/backButton"
+    <TextView
+        android:id="@+id/signInTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="307dp"
         android:background="@android:color/transparent"
         android:clickable="true"
-        android:drawablePadding="8dp"
         android:focusable="true"
-        android:gravity="center_vertical"
-        android:padding="8dp"
-        android:text="Return"
+        android:paddingStart="60dp"
+        android:text="Already have an account? "
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Regbtn"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/Regbtn" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/Regbtn"
@@ -242,7 +232,7 @@
         android:layout_height="183dp"
         android:layout_gravity="center"
         android:layout_marginStart="149dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="-2dp"
         android:layout_marginEnd="150dp"
         android:src="@drawable/img"
         app:layout_constraintEnd_toEndOf="parent"

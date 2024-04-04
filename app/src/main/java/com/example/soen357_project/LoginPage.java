@@ -2,10 +2,17 @@ package com.example.soen357_project;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.UnderlineSpan;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginPage extends AppCompatActivity {
     private EditText emailEditText, passwordEditText;
+    private TextView signUpTextView;
     private Button loginButton;
     private FirebaseAuth mAuth;
 
@@ -31,6 +39,22 @@ public class LoginPage extends AppCompatActivity {
         // Initialize EditText fields
         emailEditText = findViewById(R.id.Emaillog);
         passwordEditText = findViewById(R.id.CPasswordlog);
+
+        signUpTextView = findViewById(R.id.signUpTextView);
+        SpannableString spannableString = new SpannableString("Sign Up Now!");
+        spannableString.setSpan(new UnderlineSpan(), 0, 12, 0);
+        spannableString.setSpan(new ForegroundColorSpan(Color.BLUE), 0, 12, 0);
+        signUpTextView.append(spannableString);
+
+        signUpTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginPage.this, register.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         // Initialize login button
         loginButton = findViewById(R.id.LoginBtn2);
@@ -69,6 +93,8 @@ public class LoginPage extends AppCompatActivity {
 
             }
         });
+
+        clearOnTouch();
     }
 
     public void onImageClicked(View view) {
@@ -84,5 +110,23 @@ public class LoginPage extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
         finish();
+    }
+
+    void clearOnTouch() {
+        emailEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                emailEditText.setText(""); // Clear the text when touched
+                return false;
+            }
+        });
+
+        passwordEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                passwordEditText.setText(""); // Clear the text when touched
+                return false;
+            }
+        });
     }
 }

@@ -2,11 +2,16 @@ package com.example.soen357_project;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.UnderlineSpan;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class register extends AppCompatActivity {
     private EditText nameEditText, emailEditText,phoneEditText,AddressEditText, passwordEditText, confirmPasswordEditText;
+    private TextView signInTextView;
     private Button registerButton;
     private FirebaseAuth mAuth;
     private DatabaseReference usersRef;
@@ -43,6 +49,22 @@ public class register extends AppCompatActivity {
         emailEditText = findViewById(R.id.Emailreg);
         passwordEditText = findViewById(R.id.Passwordreg);
         confirmPasswordEditText = findViewById(R.id.CPasswordreg);
+
+        signInTextView = findViewById(R.id.signInTextView);
+        SpannableString spannableString = new SpannableString("Sign In Now!");
+        spannableString.setSpan(new UnderlineSpan(), 0, 12, 0);
+        spannableString.setSpan(new ForegroundColorSpan(Color.BLUE), 0, 12, 0);
+        signInTextView.append(spannableString);
+
+        signInTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(register.this, LoginPage.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         registerButton = findViewById(R.id.Regbtn);
         registerButton.setOnClickListener(new View.OnClickListener() {

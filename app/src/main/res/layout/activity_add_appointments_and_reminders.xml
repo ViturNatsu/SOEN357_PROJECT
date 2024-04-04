@@ -47,7 +47,7 @@
         app:layout_constraintBottom_toTopOf="@id/appointment_date_input"
         app:layout_constraintStart_toStartOf="@id/appointment_date_input" />
 
-    <TextView
+    <EditText
         android:id="@+id/appointment_date_input"
         android:layout_width="375dp"
         android:layout_height="50dp"
@@ -69,7 +69,7 @@
         app:layout_constraintBottom_toTopOf="@id/appointment_time_input"
         app:layout_constraintStart_toStartOf="@id/appointment_time_input" />
 
-    <TextView
+    <EditText
         android:id="@+id/appointment_time_input"
         android:layout_width="375dp"
         android:layout_height="50dp"
@@ -92,7 +92,7 @@
         app:layout_constraintBottom_toTopOf="@id/dog_name_for_appointment"
         app:layout_constraintStart_toStartOf="@id/dog_name_for_appointment" />
 
-    <TextView
+    <EditText
         android:id="@+id/dog_name_for_appointment"
         android:layout_width="375dp"
         android:layout_height="50dp"
@@ -115,7 +115,7 @@
         app:layout_constraintBottom_toTopOf="@id/appointment_location_input"
         app:layout_constraintStart_toStartOf="@id/appointment_location_input" />
 
-    <TextView
+    <EditText
         android:id="@+id/appointment_location_input"
         android:layout_width="375dp"
         android:layout_height="50dp"
