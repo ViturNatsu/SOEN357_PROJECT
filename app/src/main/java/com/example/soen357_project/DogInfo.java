@@ -44,6 +44,7 @@ public class DogInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DogInfo.this, HealthRecords.class);
+                intent.putExtra("dogName", dogName.getText().toString());
                 startActivity(intent);
             }
         });
