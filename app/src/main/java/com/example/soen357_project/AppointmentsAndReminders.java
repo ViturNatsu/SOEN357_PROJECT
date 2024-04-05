@@ -38,6 +38,7 @@ public class AppointmentsAndReminders extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AppointmentsAndReminders.this, add_appointments_and_reminders.class);
                 startActivity(intent);
+                finish();
             }
         });
 
