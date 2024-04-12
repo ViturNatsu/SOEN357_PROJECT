@@ -64,10 +64,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Removed API Key for safety purposes, will restrict and add later -->
+        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="" />
+            android:value="AIzaSyCnQmKCovaW8yVQgNuXBU9LfirxbThA-S0" />
     </application>
 
 </manifest>

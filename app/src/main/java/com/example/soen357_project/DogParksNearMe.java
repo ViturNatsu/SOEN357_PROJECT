@@ -42,7 +42,7 @@ public class DogParksNearMe extends AppCompatActivity implements OnMapReadyCallb
         listView = findViewById(R.id.dogParkListView);
 
         if (!Places.isInitialized()) {
-            Places.initialize(getApplicationContext(), ""); // Removed API Key for safety purposes, will restrict and add later
+            Places.initialize(getApplicationContext(), "AIzaSyCnQmKCovaW8yVQgNuXBU9LfirxbThA-S0");
         }
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -69,7 +69,7 @@ public class DogParksNearMe extends AppCompatActivity implements OnMapReadyCallb
     // REST API GET Request to retrieve dog parks near location provided with a radius of 10000
     private void fetchDogParks(double latitude, double longitude) {
         OkHttpClient client = new OkHttpClient();
-        String apiKey = ""; // Removed API Key for safety purposes, will restrict and add later
+        String apiKey = "AIzaSyCnQmKCovaW8yVQgNuXBU9LfirxbThA-S0";
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + latitude + "," + longitude + "&radius=10000&type=park&keyword=dog&key=" + apiKey;
 
         Request request = new Request.Builder()
